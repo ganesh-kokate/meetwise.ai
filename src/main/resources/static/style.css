@@ -1,0 +1,74 @@
+/* Video Grid Layout */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.video-container {
+    position: relative;
+    width: 200px;
+    height:200px;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Control Buttons */
+.btn-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 50%;
+    border: none;
+    line-height: 1.3px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-circle .bi {
+    font-size: 20px;
+    color: white;
+}
+
+.enabled-style {
+    background-color: #008cff;
+}
+
+.disabled-style {
+    background-color: #ff3030;
+}
+
+/* Local Video */
+.local-video {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
