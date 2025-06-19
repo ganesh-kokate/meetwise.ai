@@ -305,8 +305,21 @@ const generateBtn = document.getElementById("generate");
 const uniqueId = document.getElementById("uuid");
 
 generateBtn.onclick = () => {
-    const uuid = crypto.randomUUID();
-    uniqueId.textContent = uuid;
+    fetch("http://192.168.2.9:8080/room/generate-meetingId")
+    .then(response =>{
+        if (!response.ok)
+        {
+            throw new Error("Network response was not ok");
+        }
+        return response.text();
+    })
+    .then(meetingId=>{
+        uuid.textContent = meetingId;
+    })
+    .catch(error => {
+                console.error("Error generating meeting ID:", error);
+                uuid.textContent = "Failed to generate ID";
+            });
 };
 
 
